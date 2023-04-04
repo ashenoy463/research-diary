@@ -7,9 +7,9 @@
 #  Modified: 3 January 2012
 
 # Set the diary year you wish to compile and user info
-YEAR := 2012
-AUTHOR := FirstName LastName
-INSTITUTION := InstitutionName
+YEAR := 2023
+AUTHOR := Ayush Shenoy
+INSTITUTION := Sathaye College
 
 # Do not edit past this line
 RM := rm -rf
@@ -27,11 +27,14 @@ OUTFILE := $(YEAR)-Research-Diary.out
 
 anthology:
 	-@echo 'Creating anthology for research diary entries from the year $(YEAR)'
-	-@$(SHELL) scripts/create_anthology.sh "$(YEAR)" "$(AUTHOR)" "$(INSTITUTION)"
-	-latex -interaction=batchmode -halt-on-error $(TEXFILE) 
-	-dvips -q -o "$(PSFILE)" "$(DVIFILE)" -R0
-	-ps2pdf "$(PSFILE)" "$(PDFFILE)"
-	-okular $(PDFFILE)
+	-@$(SHELL) src/create_anthology.sh "$(YEAR)" "$(AUTHOR)" "$(INSTITUTION)"
+	-pdflatex -interaction=batchmode -halt-on-error $(TEXFILE) 
+	#-dvips -q -o "$(PSFILE)" "$(DVIFILE)" -R0
+	#-ps2pdf "$(PSFILE)" "$(PDFFILE)"
+	#-@${SHELL} src/clean.sh
+	make clean
+	-zathura "${PDFFILE}" &
+	#-okular $(PDFFILE)
 
 
 clean:

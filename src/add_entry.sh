@@ -10,7 +10,7 @@ if [ ! -d "$year" ]; then
     mkdir $year
     mkdir $year/images
     cd $year
-    ln -s ../images/university_logo.eps .
+    #ln -s ../images/university_logo.eps .
     ln -s ../images/university_logo.png .
     ln -s ../src/research_diary.sty .
     ln -s ../src/clean.sh clean
