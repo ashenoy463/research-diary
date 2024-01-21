@@ -10,6 +10,8 @@
 YEAR := 2023
 AUTHOR := Ayush Shenoy
 INSTITUTION := Sathaye College
+EXTLAB := Thingamajigtronics Lab
+EXTUNI := Another Research University
 
 # Do not edit past this line
 RM := rm -rf
@@ -27,12 +29,12 @@ OUTFILE := $(YEAR)-Research-Diary.out
 
 anthology:
 	-@echo 'Creating anthology for research diary entries from the year $(YEAR)'
-	-@$(SHELL) src/create_anthology.sh "$(YEAR)" "$(AUTHOR)" "$(INSTITUTION)"
+	-@$(SHELL) src/create_anthology.sh "$(YEAR)" "$(AUTHOR)" "$(INSTITUTION)" "${EXTLAB}" "${EXTUNI}"
 	-pdflatex -interaction=batchmode -halt-on-error $(TEXFILE) 
 	#-dvips -q -o "$(PSFILE)" "$(DVIFILE)" -R0
 	#-ps2pdf "$(PSFILE)" "$(PDFFILE)"
 	#-@${SHELL} src/clean.sh
-	make clean
+	#make clean
 	-zathura "${PDFFILE}" &
 	#-okular $(PDFFILE)
 

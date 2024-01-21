@@ -36,6 +36,8 @@
     filecolor=magenta,      % color of file links
     urlcolor=blue           % color of external links
 }
+\usepackage[backend=bibtex,style=ieee,doi=false,isbn=false,url=false,eprint=false]{biblatex}
+\addbibresource{refs.bib}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Notes on use of hyperlinks:
@@ -98,6 +100,16 @@
 \newcommand{\eqnend}{\end{eqnarray}}
 \newcommand{\deriv}[2]{\frac{d #1}{d #2}}
 \newcommand{\bigO}{\mathcal{O}}
+%%%%%%%%%%% TODO LIST %%%%%%%%%%%%%%%
+\usepackage{enumitem}
+\newlist{todolist}{itemize}{2}
+\setlist[todolist]{label=$\square$}
+\usepackage{pifont}
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\ding{55}}%
+\newcommand{\done}{\rlap{$\square$}{\raisebox{2pt}{\large\hspace{1pt}\cmark}}%
+\hspace{-2.5pt}}
+\newcommand{\wontfix}{\rlap{$\square$}{\large\hspace{1pt}\xmark}}
 
 %%%%%%%%% NEW ENVIRONMENTS %%%%%%%%%%%%
 \newenvironment{bullets}{

@@ -3,6 +3,8 @@
 Year="$1"
 Author="$2"
 Institution="$3"
+Lab="$4"
+LabUni="$5"
 Name="$Year-Research-Diary"
 FileName=$Name".tex"
 tmpName=$Name".tmp"
@@ -39,27 +41,36 @@ echo " " >> $FileName
 echo "\title{Research Diary - $Year}" >> $FileName
 echo "\author{$Author}" >> $FileName
 echo " " >> $FileName
-
 echo "\chead{\textsc{Research Diary}}" >> $FileName
 echo "\lhead{\textsc{\userName}}" >> $FileName
 echo "\rfoot{\textsc{\thepage}}" >> $FileName
 echo "\cfoot{\textit{Last modified: \today}}" >> $FileName
 echo "\lfoot{\textsc{\institution}}" >> $FileName
-echo "\graphicspath{{$Year/}{~/research/diary/$Year/}{~/research/diary/$Year/images/}}" >> $FileName
+echo "\graphicspath{{$Year/}{$Year/images}{images/}}" >> $FileName
 
 echo " " >> $FileName
 echo " " >> $FileName
 echo "\begin{document}" >> $FileName
-echo "\begin{center} \begin{LARGE}" >> $FileName
-echo "\textbf{Research Diary} \\\\[3mm]" >> $FileName
-echo "\textbf{$Year} \\\\[2cm]" >> $FileName
-echo "\end{LARGE} \begin{large}" >> $FileName
-echo "$Author \end{large} \\\\" >> $FileName
-echo "$Institution \\\\[7in]" >> $FileName
-echo "\textsc{Compiled \today}" >> $FileName
+echo "\begin{titlepage}" >> $FileName
+echo "    \begin{center}" >> $FileName
+echo "    \vspace*{1cm}" >> $FileName
+echo "                " >> $FileName
+echo "    \Huge" >> $FileName
+echo "    \textbf{Research Diary\\\\ $Year}" >> $FileName
+echo "                " >> $FileName
+echo "    \begin{center}" >> $FileName
+echo "        \Large{Ayush Shenoy}\\\\" >> $FileName
+echo "        \large\emph{$Lab, $LabUni}" >> $FileName
+echo "    \end{center}" >> $FileName
+echo "    \vfill" >> $FileName
+echo "    \begin{figure}[!htb]" >> $FileName
+echo "        \center" >> $FileName
+echo "        \includegraphics[width=4cm, height=4cm]{images/university_logo.png}" >> $FileName
+echo "    \end{figure}" >> $FileName
+echo "    \vfill" >> $FileName
+echo "    \large" >> $FileName
 echo "\end{center}" >> $FileName
-echo "\thispagestyle{empty}" >> $FileName
-echo "\newpage" >> $FileName
+echo "\end{titlepage}\newpage" >> $FileName
 
 for i in $( ls $Year/$Year-*.tex ); do
     echo -e "\n%%% --- $i --- %%%\n" >> $tmpName
