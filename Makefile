@@ -7,11 +7,11 @@
 #  Modified: 3 January 2012
 
 # Set the diary year you wish to compile and user info
-YEAR := 2023
+YEAR := 2025
 AUTHOR := Ayush Shenoy
-INSTITUTION := Sathaye College
-EXTLAB := Thingamajigtronics Lab
-EXTUNI := Another Research University
+INSTITUTION := University of Pune
+EXTLAB := Department of Physics
+EXTUNI := University of Pune
 
 # Do not edit past this line
 RM := rm -rf
